@@ -86,195 +86,215 @@
 
     <!-- Case Submission Form Template -->
     <template id="case_submission_form" name="Case Submission Form">
-        <t t-call="website.layout">
-            <div id="wrap">
-                <div class="container mt32 mb32">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h1 class="text-center mb32">Submit Your Case</h1>
-                            <form action="/submit-case" method="post" class="o_website_form" enctype="multipart/form-data">
-                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
-                                
-                                <!-- Applicant Information -->
-                                <h3 class="mb-3">Applicant Information</h3>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label" for="contact_name">Contact Name</label>
-                                    <div class="col-lg-9">
-                                        <input type="text" class="form-control" name="contact_name" required="required"/>
-                                    </div>
+    <t t-call="website.layout">
+        <div id="wrap">
+            <div class="container mt32 mb32">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="text-center mb32">Submit Your Case</h1>
+                        <form action="/submit-case" method="post" class="o_website_form" enctype="multipart/form-data">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            
+                            <!-- Applicant Information -->
+                            <h3 class="mb-3">Personal Information</h3>
+                            <div class="form-group">
+                                <div class="mb-2">
+                                    <label for="contact_name">Your Full Name</label>
+                                    <label for="contact_name" class="d-block">الاسم الثلاثي</label>
                                 </div>
+                                <input type="text" class="form-control" name="contact_name" required="required"/>
+                            </div>
 
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label" for="contact_email">Contact Email</label>
-                                    <div class="col-lg-9">
-                                        <input type="email" class="form-control" name="contact_email" required="required"/>
-                                    </div>
+                            <div class="form-group">
+                                <div class="mb-2">
+                                    <label for="contact_email">Email Address</label>
+                                    <label for="contact_email" class="d-block">البريد الإلكتروني</label>
                                 </div>
+                                <input type="email" class="form-control" name="contact_email" required="required"/>
+                            </div>
 
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label" for="contact_phone">Contact Phone</label>
-                                    <div class="col-lg-9">
-                                        <input type="tel" class="form-control" name="contact_phone" required="required"/>
-                                    </div>
+                            <div class="form-group">
+                                <div class="mb-2">
+                                    <label for="contact_phone">Phone Number</label>
+                                    <label for="contact_phone" class="d-block">رقم الهاتف</label>
                                 </div>
+                                <input type="tel" class="form-control" name="contact_phone" required="required"/>
+                            </div>
 
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label" for="contact_age">Contact Age</label>
-                                    <div class="col-lg-9">
-                                        <input type="number" class="form-control" name="contact_age" required="required"/>
-                                    </div>
+                            <div class="form-group">
+                                <div class="mb-2">
+                                    <label for="contact_age">Age</label>
+                                    <label for="contact_age" class="d-block">العمر</label>
                                 </div>
+                                <input type="number" class="form-control" name="contact_age" required="required"/>
+                            </div>
+                            <div class="form-group">
+                                <div class="mb-2">
+                                    <label for="project_name">Project Name</label>
+                                    <label for="project_name" class="d-block">اسم المشروع</label>
+                                </div>
+                                <input type="text" class="form-control" name="project_name" required="required"/>
+                            </div>    
+                            <!-- Project Information -->
+                            <h3 class="mb-3 mt-4">General Information &amp; Idea Description </h3>
+                            
+                            <div class="form-group">
+                                <div class="mb-2">
+                                    <label for="project_description">Describe your Business</label>
+                                    <label for="project_description" class="d-block">اوصف طبيعة عمل الشركة</label>
+                                </div>
+                                <textarea class="form-control" name="project_description" rows="4" required="required"></textarea>
+                            </div>
 
-                                <!-- Project Information -->
-                                <h3 class="mb-3 mt-4">Project Information</h3>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label" for="project_name">Project Name</label>
-                                    <div class="col-lg-9">
-                                        <input type="text" class="form-control" name="project_name" required="required"/>
-                                    </div>
+                            <!-- Business Information -->
+                            <h3 class="mb-3 mt-4">Business Information</h3>
+                            <div class="form-group">
+                                <div class="mb-2">
+                                    <label for="business_nature">Business Nature</label>
+                                    <label for="business_nature" class="d-block">طبيعة العمل</label>
                                 </div>
+                                <textarea class="form-control" name="business_nature" rows="3"></textarea>
+                            </div>
 
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label" for="project_description">Project Description</label>
-                                    <div class="col-lg-9">
-                                        <textarea class="form-control" name="project_description" rows="4" required="required"></textarea>
-                                    </div>
+                            <div class="form-group">
+                                <div class="mb-2">
+                                    <label for="business_model">Business Model</label>
+                                    <label for="business_model" class="d-block">نموذج العمل</label>
                                 </div>
+                                <textarea class="form-control" name="business_model" rows="3"></textarea>
+                            </div>
 
-                                <!-- Business Information -->
-                                <h3 class="mb-3 mt-4">Business Information</h3>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label" for="business_nature">Business Nature</label>
-                                    <div class="col-lg-9">
-                                        <textarea class="form-control" name="business_nature" rows="3"></textarea>
-                                    </div>
+                            <div class="form-group">
+                                <div class="mb-2">
+                                    <label for="business_registration_type">Business Registration Type</label>
+                                    <label for="business_registration_type" class="d-block">نوع تسجيل الشركة</label>
                                 </div>
+                                <input type="text" class="form-control" name="business_registration_type"/>
+                            </div>
 
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label" for="business_model">Business Model</label>
-                                    <div class="col-lg-9">
-                                        <textarea class="form-control" name="business_model" rows="3"></textarea>
-                                    </div>
+                            <div class="form-group">
+                                <div class="mb-2">
+                                    <label for="company_registration_date">Company Registration Date</label>
+                                    <label for="company_registration_date" class="d-block">تاريخ تسجيل الشركة</label>
                                 </div>
+                                <input type="date" class="form-control" name="company_registration_date"/>
+                            </div>
 
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label" for="business_registration_type">Business Registration Type</label>
-                                    <div class="col-lg-9">
-                                        <input type="text" class="form-control" name="business_registration_type"/>
-                                    </div>
+                            <!-- Market Analysis -->
+                            <h3 class="mb-3 mt-4">Market Analysis</h3>
+                            <div class="form-group">
+                                <div class="mb-2">
+                                    <label for="sector_category">Sector Category</label>
+                                    <label for="sector_category" class="d-block">فئة القطاع</label>
                                 </div>
+                                <input type="text" class="form-control" name="sector_category"/>
+                            </div>
 
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label" for="company_registration_date">Company Registration Date</label>
-                                    <div class="col-lg-9">
-                                        <input type="date" class="form-control" name="company_registration_date"/>
-                                    </div>
+                            <div class="form-group">
+                                <div class="mb-2">
+                                    <label for="target_audience">Target Audience</label>
+                                    <label for="target_audience" class="d-block">الجمهور المستهدف</label>
                                 </div>
+                                <textarea class="form-control" name="target_audience" rows="3"></textarea>
+                            </div>
 
-                                <!-- Market Analysis -->
-                                <h3 class="mb-3 mt-4">Market Analysis</h3>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label" for="sector_category">Sector Category</label>
-                                    <div class="col-lg-9">
-                                        <input type="text" class="form-control" name="sector_category"/>
-                                    </div>
+                            <div class="form-group">
+                                <div class="mb-2">
+                                    <label for="competitive_advantage">Competitive Advantage</label>
+                                    <label for="competitive_advantage" class="d-block">الميزة التنافسية</label>
                                 </div>
+                                <textarea class="form-control" name="competitive_advantage" rows="3"></textarea>
+                            </div>
 
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label" for="target_audience">Target Audience</label>
-                                    <div class="col-lg-9">
-                                        <textarea class="form-control" name="target_audience" rows="3"></textarea>
-                                    </div>
+                            <!-- Business Operations -->
+                            <h3 class="mb-3 mt-4">Business Operations</h3>
+                            <div class="form-group">
+                                <div class="mb-2">
+                                    <label for="offered_services">Offered Services</label>
+                                    <label for="offered_services" class="d-block">الخدمات المقدمة</label>
                                 </div>
+                                <textarea class="form-control" name="offered_services" rows="3"></textarea>
+                            </div>
 
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label" for="competitive_advantage">Competitive Advantage</label>
-                                    <div class="col-lg-9">
-                                        <textarea class="form-control" name="competitive_advantage" rows="3"></textarea>
-                                    </div>
+                            <div class="form-group">
+                                <div class="mb-2">
+                                    <label for="problems_to_be_solved">Problems to be Solved</label>
+                                    <label for="problems_to_be_solved" class="d-block">المشاكل المراد حلها</label>
                                 </div>
+                                <textarea class="form-control" name="problems_to_be_solved" rows="3"></textarea>
+                            </div>
 
-                                <!-- Business Operations -->
-                                <h3 class="mb-3 mt-4">Business Operations</h3>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label" for="offered_services">Offered Services</label>
-                                    <div class="col-lg-9">
-                                        <textarea class="form-control" name="offered_services" rows="3"></textarea>
-                                    </div>
+                            <div class="form-group">
+                                <div class="mb-2">
+                                    <label for="challenges">Challenges</label>
+                                    <label for="challenges" class="d-block">التحديات</label>
                                 </div>
+                                <textarea class="form-control" name="challenges" rows="3"></textarea>
+                            </div>
 
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label" for="problems_to_be_solved">Problems to be Solved</label>
-                                    <div class="col-lg-9">
-                                        <textarea class="form-control" name="problems_to_be_solved" rows="3"></textarea>
-                                    </div>
+                            <!-- Financial Information -->
+                            <h3 class="mb-3 mt-4">Financial Information</h3>
+                            <div class="form-group">
+                                <div class="mb-2">
+                                    <label for="business_start_date">Business Start Date</label>
+                                    <label for="business_start_date" class="d-block">تاريخ بدء العمل</label>
                                 </div>
+                                <input type="date" class="form-control" name="business_start_date"/>
+                            </div>
 
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label" for="challenges">Challenges</label>
-                                    <div class="col-lg-9">
-                                        <textarea class="form-control" name="challenges" rows="3"></textarea>
-                                    </div>
+                            <div class="form-group">
+                                <div class="mb-2">
+                                    <label for="funding_amount">Funding Amount</label>
+                                    <label for="funding_amount" class="d-block">مبلغ التمويل</label>
                                 </div>
+                                <input type="number" step="0.01" class="form-control" name="funding_amount"/>
+                            </div>
 
-                                <!-- Financial Information -->
-                                <h3 class="mb-3 mt-4">Financial Information</h3>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label" for="business_start_date">Business Start Date</label>
-                                    <div class="col-lg-9">
-                                        <input type="date" class="form-control" name="business_start_date"/>
-                                    </div>
+                            <div class="form-group">
+                                <div class="mb-2">
+                                    <label for="profit_model">Profit Model</label>
+                                    <label for="profit_model" class="d-block">نموذج الربح</label>
                                 </div>
+                                <textarea class="form-control" name="profit_model" rows="3"></textarea>
+                            </div>
 
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label" for="funding_amount">Funding Amount</label>
-                                    <div class="col-lg-9">
-                                        <input type="number" step="0.01" class="form-control" name="funding_amount"/>
-                                    </div>
+                            <div class="form-group">
+                                <div class="mb-2">
+                                    <label for="previous_investments">Previous Investments</label>
+                                    <label for="previous_investments" class="d-block">الاستثمارات السابقة</label>
                                 </div>
+                                <textarea class="form-control" name="previous_investments" rows="3"></textarea>
+                            </div>
 
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label" for="profit_model">Profit Model</label>
-                                    <div class="col-lg-9">
-                                        <textarea class="form-control" name="profit_model" rows="3"></textarea>
-                                    </div>
+                            <!-- Documents -->
+                            <h3 class="mb-3 mt-4">Documents</h3>
+                            <div class="form-group">
+                                <div class="mb-2">
+                                    <label for="business_plan">Business Plan</label>
+                                    <label for="business_plan" class="d-block">خطة العمل</label>
                                 </div>
+                                <input type="file" class="form-control" name="business_plan"/>
+                            </div>
 
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label" for="previous_investments">Previous Investments</label>
-                                    <div class="col-lg-9">
-                                        <textarea class="form-control" name="previous_investments" rows="3"></textarea>
-                                    </div>
+                            <div class="form-group">
+                                <div class="mb-2">
+                                    <label for="pitch_deck">Pitch Deck</label>
+                                    <label for="pitch_deck" class="d-block">عرض تقديمي</label>
                                 </div>
+                                <input type="file" class="form-control" name="pitch_deck"/>
+                            </div>
 
-                                <!-- Documents -->
-                                <h3 class="mb-3 mt-4">Documents</h3>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label" for="business_plan">Business Plan</label>
-                                    <div class="col-lg-9">
-                                        <input type="file" class="form-control" name="business_plan"/>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label" for="pitch_deck">Pitch Deck</label>
-                                    <div class="col-lg-9">
-                                        <input type="file" class="form-control" name="pitch_deck"/>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="offset-lg-3 col-lg-9">
-                                        <button type="submit" class="btn btn-primary">Submit Application</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                            <div class="form-group mt-4">
+                                <button type="submit" class="btn btn-primary">Submit Application</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-        </t>
-    </template>
+        </div>
+    </t>
+</template>
+
 
     <!-- Case Submission Success Template -->
     <template id="case_submitted" name="Case Submitted Successfully">

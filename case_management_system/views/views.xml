@@ -36,7 +36,6 @@
                                 <field name="contact_name"/>
                                 <field name="contact_email"/>
                                 <field name="contact_phone"/>
-                                <field name="contact_age"/>
                                 <field name="project_name"/>
                                 <field name="project_description"/>
                             </group>
