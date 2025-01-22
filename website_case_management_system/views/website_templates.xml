@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Website Menu -->
+    <record id="menu_case_submission" model="website.menu">
+        <field name="name">Case</field>
+        <field name="url">/case</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">50</field>
+    </record>
+
+    <!-- Landing Page Template -->
+    <template id="case_landing_page" name="Case Landing Page">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <!-- Hero Banner Section -->
+                <section class="s_banner parallax s_parallax_is_fixed bg-black-50 pt96 pb96" data-scroll-background-ratio="1">
+                    <span class="s_parallax_bg oe_img_bg" style="background-image: url('/website_case_management_system/static/src/img/banner.jpg');"/>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <h1 class="text-white mb32">Empowering Your Business Journey</h1>
+                                <p class="lead text-white mb32">
+                                    We support innovative entrepreneurs and startups through our comprehensive case management system. 
+                                    Get the funding and guidance you need to turn your vision into reality.
+                                </p>
+                                <a href="/submit-case" class="btn btn-primary btn-lg">Apply Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Features Section -->
+                <section class="pt48 pb32">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4 text-center mb32">
+                                <i class="fa fa-money fa-3x text-primary mb16"></i>
+                                <h3>Funding Support</h3>
+                                <p>Access to financial resources to help grow your business</p>
+                            </div>
+                            <div class="col-lg-4 text-center mb32">
+                                <i class="fa fa-lightbulb-o fa-3x text-primary mb16"></i>
+                                <h3>Innovation Focus</h3>
+                                <p>Support for innovative ideas and solutions</p>
+                            </div>
+                            <div class="col-lg-4 text-center mb32">
+                                <i class="fa fa-users fa-3x text-primary mb16"></i>
+                                <h3>Expert Guidance</h3>
+                                <p>Professional mentorship and business advice</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Process Section -->
+                <section class="bg-light pt48 pb32">
+                    <div class="container">
+                        <h2 class="text-center mb32">How It Works</h2>
+                        <div class="row">
+                            <div class="col-lg-3 text-center mb32">
+                                <div class="h1 text-primary">1</div>
+                                <h4>Apply</h4>
+                                <p>Submit your application with project details</p>
+                            </div>
+                            <div class="col-lg-3 text-center mb32">
+                                <div class="h1 text-primary">2</div>
+                                <h4>Review</h4>
+                                <p>Our team evaluates your application</p>
+                            </div>
+                            <div class="col-lg-3 text-center mb32">
+                                <div class="h1 text-primary">3</div>
+                                <h4>Qualify</h4>
+                                <p>Successful applications move to qualification</p>
+                            </div>
+                            <div class="col-lg-3 text-center mb32">
+                                <div class="h1 text-primary">4</div>
+                                <h4>Support</h4>
+                                <p>Receive funding and ongoing support</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </t>
+    </template>
+
+    <!-- Case Submission Form Template -->
+    <template id="case_submission_form" name="Case Submission Form">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="container mt32 mb32">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="text-center mb32">Submit Your Case</h1>
+                            <form action="/submit-case" method="post" class="o_website_form" enctype="multipart/form-data">
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                
+                                <!-- Applicant Information -->
+                                <h3 class="mb-3">Applicant Information</h3>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label" for="contact_name">Contact Name</label>
+                                    <div class="col-lg-9">
+                                        <input type="text" class="form-control" name="contact_name" required="required"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label" for="contact_email">Contact Email</label>
+                                    <div class="col-lg-9">
+                                        <input type="email" class="form-control" name="contact_email" required="required"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label" for="contact_phone">Contact Phone</label>
+                                    <div class="col-lg-9">
+                                        <input type="tel" class="form-control" name="contact_phone" required="required"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label" for="contact_age">Contact Age</label>
+                                    <div class="col-lg-9">
+                                        <input type="number" class="form-control" name="contact_age" required="required"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label" for="project_name">Project Name</label>
+                                    <div class="col-lg-9">
+                                        <input type="text" class="form-control" name="project_name" required="required"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label" for="project_description">Project Description</label>
+                                    <div class="col-lg-9">
+                                        <textarea class="form-control" name="project_description" rows="4" required="required"></textarea>
+                                    </div>
+                                </div>
+
+                                <!-- General Information -->
+                                <h3 class="mb-3 mt-4">General Information</h3>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label" for="business_nature">Business Nature</label>
+                                    <div class="col-lg-9">
+                                        <textarea class="form-control" name="business_nature" rows="3"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label" for="sector_category">Sector Category</label>
+                                    <div class="col-lg-9">
+                                        <input type="text" class="form-control" name="sector_category"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label" for="problems_to_be_solved">Problems to be Solved</label>
+                                    <div class="col-lg-9">
+                                        <textarea class="form-control" name="problems_to_be_solved" rows="3"></textarea>
+                                    </div>
+                                </div>
+
+                                <!-- Business Details -->
+                                <h3 class="mb-3 mt-4">Business Details</h3>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label" for="business_start_date">Business Start Date</label>
+                                    <div class="col-lg-9">
+                                        <input type="date" class="form-control" name="business_start_date"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label" for="funding_amount">Funding Amount</label>
+                                    <div class="col-lg-9">
+                                        <input type="number" step="0.01" class="form-control" name="funding_amount"/>
+                                    </div>
+                                </div>
+
+                                <!-- Documents -->
+                                <h3 class="mb-3 mt-4">Documents</h3>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label" for="business_plan">Business Plan</label>
+                                    <div class="col-lg-9">
+                                        <input type="file" class="form-control" name="business_plan"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label" for="pitch_deck">Pitch Deck</label>
+                                    <div class="col-lg-9">
+                                        <input type="file" class="form-control" name="pitch_deck"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="offset-lg-3 col-lg-9">
+                                        <button type="submit" class="btn btn-primary">Submit Application</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Case Submission Success Template -->
+    <template id="case_submitted" name="Case Submitted Successfully">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="container mt32 mb32">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="alert alert-success text-center">
+                                <h2>Thank you!</h2>
+                                <p>Your application has been submitted successfully.</p>
+                                <p>Reference Number: <strong><t t-esc="case.name"/></strong></p>
+                                <p>We will review your application and contact you soon.</p>
+                                <div class="mt16">
+                                    <a href="/submit-case" class="btn btn-primary">Submit Another Application</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo> 

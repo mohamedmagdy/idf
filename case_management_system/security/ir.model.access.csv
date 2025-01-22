@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_case_management_user,case_management_system.case_management_system_user,model_case_case,group_case_user,1,1,1,1
+access_case_management_supervisor,case_management_system.case_management_system_supervisor,model_case_case,group_case_supervisor,1,1,1,1
+access_case_management_manager,case_management_system.case_management_system_manager,model_case_case,group_case_manager,1,1,1,1
+access_case_public,case.case.public,model_case_case,base.group_public,1,0,1,0
