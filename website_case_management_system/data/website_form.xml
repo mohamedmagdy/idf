@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <function model="ir.model.fields" name="formbuilder_whitelist">
+        <value>case.case</value>
+        <value eval="[
+            'contact_name',
+            'contact_email',
+            'contact_phone',
+            'contact_age',
+            'project_name',
+            'project_description',
+            'business_nature',
+            'business_model',
+            'business_registration_type',
+            'challenges',
+            'company_registration_date',
+            'competitive_advantage',
+            'sector_category',
+            'problems_to_be_solved',
+            'business_start_date',
+            'funding_amount',
+            'business_plan',
+            'pitch_deck',
+            'is_business_plan',
+            'is_general_info',
+            'is_pitch_deck',
+            'offered_services',
+            'previous_investments',
+            'profit_model',
+            'target_audience',
+            'state'
+        ]"/>
+    </function>
+</odoo> 

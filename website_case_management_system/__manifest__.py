@@ -26,6 +26,7 @@ Long description of module's purpose
         'views/views.xml',
         'views/templates.xml',
         'views/website_templates.xml',
+        'data/website_form.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

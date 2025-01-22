@@ -3,7 +3,7 @@
     <!-- Website Menu -->
     <record id="menu_case_submission" model="website.menu">
         <field name="name">Case</field>
-        <field name="url">/case</field>
+        <field name="url">/case/form</field>
         <field name="parent_id" ref="website.main_menu"/>
         <field name="sequence">50</field>
     </record>
@@ -125,6 +125,8 @@
                                     </div>
                                 </div>
 
+                                <!-- Project Information -->
+                                <h3 class="mb-3 mt-4">Project Information</h3>
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label" for="project_name">Project Name</label>
                                     <div class="col-lg-9">
@@ -139,8 +141,8 @@
                                     </div>
                                 </div>
 
-                                <!-- General Information -->
-                                <h3 class="mb-3 mt-4">General Information</h3>
+                                <!-- Business Information -->
+                                <h3 class="mb-3 mt-4">Business Information</h3>
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label" for="business_nature">Business Nature</label>
                                     <div class="col-lg-9">
@@ -149,9 +151,55 @@
                                 </div>
 
                                 <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label" for="business_model">Business Model</label>
+                                    <div class="col-lg-9">
+                                        <textarea class="form-control" name="business_model" rows="3"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label" for="business_registration_type">Business Registration Type</label>
+                                    <div class="col-lg-9">
+                                        <input type="text" class="form-control" name="business_registration_type"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label" for="company_registration_date">Company Registration Date</label>
+                                    <div class="col-lg-9">
+                                        <input type="date" class="form-control" name="company_registration_date"/>
+                                    </div>
+                                </div>
+
+                                <!-- Market Analysis -->
+                                <h3 class="mb-3 mt-4">Market Analysis</h3>
+                                <div class="form-group row">
                                     <label class="col-lg-3 col-form-label" for="sector_category">Sector Category</label>
                                     <div class="col-lg-9">
                                         <input type="text" class="form-control" name="sector_category"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label" for="target_audience">Target Audience</label>
+                                    <div class="col-lg-9">
+                                        <textarea class="form-control" name="target_audience" rows="3"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label" for="competitive_advantage">Competitive Advantage</label>
+                                    <div class="col-lg-9">
+                                        <textarea class="form-control" name="competitive_advantage" rows="3"></textarea>
+                                    </div>
+                                </div>
+
+                                <!-- Business Operations -->
+                                <h3 class="mb-3 mt-4">Business Operations</h3>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label" for="offered_services">Offered Services</label>
+                                    <div class="col-lg-9">
+                                        <textarea class="form-control" name="offered_services" rows="3"></textarea>
                                     </div>
                                 </div>
 
@@ -162,8 +210,15 @@
                                     </div>
                                 </div>
 
-                                <!-- Business Details -->
-                                <h3 class="mb-3 mt-4">Business Details</h3>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label" for="challenges">Challenges</label>
+                                    <div class="col-lg-9">
+                                        <textarea class="form-control" name="challenges" rows="3"></textarea>
+                                    </div>
+                                </div>
+
+                                <!-- Financial Information -->
+                                <h3 class="mb-3 mt-4">Financial Information</h3>
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label" for="business_start_date">Business Start Date</label>
                                     <div class="col-lg-9">
@@ -175,6 +230,20 @@
                                     <label class="col-lg-3 col-form-label" for="funding_amount">Funding Amount</label>
                                     <div class="col-lg-9">
                                         <input type="number" step="0.01" class="form-control" name="funding_amount"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label" for="profit_model">Profit Model</label>
+                                    <div class="col-lg-9">
+                                        <textarea class="form-control" name="profit_model" rows="3"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label" for="previous_investments">Previous Investments</label>
+                                    <div class="col-lg-9">
+                                        <textarea class="form-control" name="previous_investments" rows="3"></textarea>
                                     </div>
                                 </div>
 
@@ -217,10 +286,10 @@
                             <div class="alert alert-success text-center">
                                 <h2>Thank you!</h2>
                                 <p>Your application has been submitted successfully.</p>
-                                <p>Reference Number: <strong><t t-esc="case.name"/></strong></p>
+                                <p>Reference Number: <strong><t t-out="case.name"/></strong></p>
                                 <p>We will review your application and contact you soon.</p>
                                 <div class="mt16">
-                                    <a href="/submit-case" class="btn btn-primary">Submit Another Application</a>
+                                    <a href="/case/form" class="btn btn-primary">Submit Another Application</a>
                                 </div>
                             </div>
                         </div>

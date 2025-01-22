@@ -6,7 +6,7 @@
             <field name="model">case.case</field>
             <field name="arch" type="xml">
                 <list string="Cases">
-                    <field name="name"/>
+                    <field name="name" readonly="1"/>
                     <field name="contact_name"/>
                     <field name="project_name"/>
                     <field name="contact_email"/>
@@ -88,6 +88,7 @@
                             </page>
                         </notebook>
                     </sheet>
+                    <chatter/>
                 </form>
             </field>
         </record>

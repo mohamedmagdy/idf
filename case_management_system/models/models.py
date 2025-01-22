@@ -7,8 +7,9 @@ class CaseManagementSystem(models.Model):
     _name = 'case.case'
     _description = 'Case Management System'
     _inherit = ['mail.thread', 'mail.activity.mixin']
+    _order = 'id desc'
     
-    name = fields.Char(string='Name', required=True, default='New', readonly=True)
+    name = fields.Char(string='Name', default='New', required=True)
     state = fields.Selection([('apply', 'Apply'), ('pre_qualification', 'Pre-qualification'), ('qualified', 'Qualified'), ('rejected', 'Rejected')], string='State', required=True, default='apply')
     # Applicant Information
     contact_name = fields.Char(string='Contact Name', required=True)
@@ -52,5 +53,5 @@ class CaseManagementSystem(models.Model):
         env_sequence = self.env['ir.sequence']
         for val in vals_list:
             if val.get('name', 'New') == 'New':
-                val['name'] = env_sequence.next_by_code('case.case')
+                val['name'] = env_sequence.next_by_code('case.case.sequence')
         return super(CaseManagementSystem, self).create(vals_list)
